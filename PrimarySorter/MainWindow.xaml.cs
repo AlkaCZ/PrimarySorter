@@ -29,7 +29,15 @@ namespace PrimarySorter
             for (int i = 2; i < num; i++)
                 if (num % i == 0)
                     return false;
-            return true;
+            if (num == 1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+          
         }
         public int[] CreatePole(int min, int max)
         {
@@ -69,8 +77,10 @@ namespace PrimarySorter
 
                     if (chkprime(item))
                     {
-                        tb1Out.Text += (" ");
-                        tb1Out.Text += item.ToString();
+
+                            tb1Out.Text += (" ");
+                            tb1Out.Text += item.ToString();
+                        
                     }
 
                 }
@@ -83,7 +93,7 @@ namespace PrimarySorter
         {
             tb2Out.Clear();
             int delka = Convert.ToInt32(tb2Max.Text);
-            int Num = Convert.ToInt32(tb2Num.Text);
+            char num = Convert.ToChar(tb2Num.Text);
             int[] poleU2 = new int[delka + 1];
             for (int i = 0; i < delka + 1; i++)
             {
@@ -93,21 +103,43 @@ namespace PrimarySorter
             {
                 if (chkprime(item))
                 {
-                    char[] test = new char[5];
-                    test[0] = (char)item;
-                    for (int i = 0; i < 5; i++)
-                    {
-                        if (test[i] == Num)
-                        {
-                            tb2Out.Text += item.ToString();
-                            //test[]
-                        }
-                    }
+                    char[] itemArray2 = item.ToString().ToCharArray();
 
+                    if (itemArray2.Contains(num))
+                    {
+                            tb2Out.Text += item.ToString();
+                            tb2Out.Text += " ";
+
+                    }
+                    
 
                 }
+               
             }
+            
 
+        }
+
+        private void Uloha3_Click(object sender, RoutedEventArgs e)
+        {
+            tb3Out.Clear();
+            int delka = Convert.ToInt32(tb3Max.Text);
+            //char Num = Convert.ToChar(tb3Num.Text);
+            //int nasobek = Convert.ToInt32(tb3Nasobek.Text);
+            int[] poleU3 = new int[delka + 1];
+            int[] primes = new int[delka];
+            for (int i = 0; i < delka + 1; i++)
+            {
+                poleU3[i] = i;
+            }
+            foreach (int item in poleU3)
+            {
+                if (chkprime(item))
+                {
+                    
+                }
+
+            }
         }
     }
 }
