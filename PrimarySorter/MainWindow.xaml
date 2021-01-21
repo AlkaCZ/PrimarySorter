@@ -26,7 +26,7 @@
         <Button x:Name="Uloha2" Click="Uloha2_Click" Content="Spustit hledání" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center"></Button>
         <Label Content="Jaké číslo má hledané prvočíslo obsahovat ?" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center"></Label>
         <Label Content="V jakém rozsahu se mají vyhledat prvočísla ?" VerticalAlignment="Center" Grid.ColumnSpan="2"></Label>
-        <TextBox x:Name="tb1Out" Grid.Column="4" Background="Red" MaxLines="7" MaxLength="10" BorderBrush="#FF00FF0C" Foreground="White"/>
+        <TextBox x:Name="tb1Out" Grid.Column="4" Background="Red" MaxLines="7" MaxLength="10" BorderBrush="#FF00FF0C" Foreground="White" FontWeight="Bold"/>
         <TextBox x:Name="tb2Out" Grid.Column="4" Grid.Row="1" Background="Blue" Foreground="White" FontWeight="Bold"></TextBox>
 
         <TextBox x:Name="tb1Max" Background="Red" Grid.Column="2" VerticalAlignment="Top" Height="25" Text="Max"></TextBox>

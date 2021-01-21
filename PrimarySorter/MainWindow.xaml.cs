@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
 
 namespace PrimarySorter
 {
@@ -105,21 +106,24 @@ namespace PrimarySorter
             
 
         }
- private string Uloha1Sync(string max, string min)
+ private string Uloha1Sync()
         {
-            int maxI = Convert.ToInt32(max);
-            int minI = Convert.ToInt32(max);
-            if (minI > maxI)
+            //tb1Out.Clear();
+            //int max = Convert.ToInt32(tb1Max.Text);
+            //int min = Convert.ToInt32(tb1Min.Text);
+            int max = 20;
+            int min = 1;
+            if (min > max)
             {
                 MessageBox.Show("Minimální hodnota je větší než maximální", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
-                int delka = maxI - minI;
+                int delka = max - min;
                 int[] prim = new int[delka + 1];
                 for (int i = 0; i < delka + 1; i++)
                 {
-                    prim[i] = minI + i;
+                    prim[i] = min + i;
                 }
                 foreach (int item in prim)
                 {
@@ -130,19 +134,56 @@ namespace PrimarySorter
                        
                         return item.ToString();
 
+                    }
+
+                }
+            }
+            return null;
+
+        }
+        private string Uloha2Sync()
+        {
+            //tb2Out.Clear();
+            //int delka = Convert.ToInt32(tb2Max.Text);
+            //char num = Convert.ToChar(tb2Num.Text);
+            int delka = 20;
+            char num = '1';
+            int[] poleU2 = new int[delka + 1];
+            for (int i = 0; i < delka + 1; i++)
+            {
+                poleU2[i] = i;
+            }
+            foreach (int item in poleU2)
+            {
+                if (chkprime(item))
+                {
+                    char[] itemArray2 = item.ToString().ToCharArray();
+
+                    if (itemArray2.Contains(num))
+                    {
+                        return item.ToString();
+
 
                     }
 
 
                 }
-                return null;
+
             }
             return null;
+
         }
 
         private async void AsyncButt_Click(object sender, RoutedEventArgs e)
         {
-            await Task.Run(() => Uloha1Sync(tb1Max.Text, tb1Min.Text));
+            List<Task<string>> myTasks = new List<Task<string>>();
+            Task<string> task1 = new Task<string>(Uloha1Sync);
+            task1.Start();
+            tb1Out.Text += await task1;
+            Task<string> task2 = new Task<string>(Uloha2Sync);
+            task2.Start();
+            tb2Out.Text = await task2;
+
         }
     }
 }
