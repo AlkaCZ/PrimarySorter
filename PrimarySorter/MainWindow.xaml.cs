@@ -39,23 +39,9 @@ namespace PrimarySorter
             }
           
         }
-        public int[] CreatePole(int min, int max)
-        {
 
-            int delka = max - min;
-            int[] pole = new int[delka];
-            for (int i = 0; i < delka; i++)
-            {
-                pole[i] = min + 1;
-            }
-            return pole;
-  
-        }
-        //public async static Task<int> ShowPrimes()
-        //{
 
-        //}
-        private  void Uloha1_Click(object sender, RoutedEventArgs e)
+        private void Uloha1_Click(object sender, RoutedEventArgs e)
         {
             tb1Out.Clear();
             int max = Convert.ToInt32(tb1Max.Text);
@@ -119,27 +105,44 @@ namespace PrimarySorter
             
 
         }
-
-        private void Uloha3_Click(object sender, RoutedEventArgs e)
+ private string Uloha1Sync(string max, string min)
         {
-            tb3Out.Clear();
-            int delka = Convert.ToInt32(tb3Max.Text);
-            //char Num = Convert.ToChar(tb3Num.Text);
-            //int nasobek = Convert.ToInt32(tb3Nasobek.Text);
-            int[] poleU3 = new int[delka + 1];
-            int[] primes = new int[delka];
-            for (int i = 0; i < delka + 1; i++)
+            int maxI = Convert.ToInt32(max);
+            int minI = Convert.ToInt32(max);
+            if (minI > maxI)
             {
-                poleU3[i] = i;
+                MessageBox.Show("Minimální hodnota je větší než maximální", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            foreach (int item in poleU3)
+            else
             {
-                if (chkprime(item))
+                int delka = maxI - minI;
+                int[] prim = new int[delka + 1];
+                for (int i = 0; i < delka + 1; i++)
                 {
-                    
+                    prim[i] = minI + i;
                 }
+                foreach (int item in prim)
+                {
 
+                    if (chkprime(item))
+                    {
+
+                       
+                        return item.ToString();
+
+
+                    }
+
+
+                }
+                return null;
             }
+            return null;
+        }
+
+        private async void AsyncButt_Click(object sender, RoutedEventArgs e)
+        {
+            await Task.Run(() => Uloha1Sync(tb1Max.Text, tb1Min.Text));
         }
     }
 }

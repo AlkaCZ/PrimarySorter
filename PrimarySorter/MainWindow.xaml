@@ -21,16 +21,13 @@
         </Grid.RowDefinitions>
         <Label Content="1. Úloha"></Label>
         <Label Content="2. Úloha" Grid.Row="1"></Label>
-        <Label Content="3. Úloha" Grid.Row="2"></Label>
+        <Label Content="" Grid.Row="2"></Label>
         <Button x:Name="Uloha1" Click="Uloha1_Click" Content="Spustit hledání" Grid.Column="0" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center"></Button>
         <Button x:Name="Uloha2" Click="Uloha2_Click" Content="Spustit hledání" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center"></Button>
-        <Button x:Name="Uloha3" Click="Uloha3_Click" Content="Spustit hledání" Grid.Column="0" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center"></Button>
         <Label Content="Jaké číslo má hledané prvočíslo obsahovat ?" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center"></Label>
-        <Label Content="Jaké číslice se mají v prvočísle opakovat a kolikrát ?" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Center"></Label>
         <Label Content="V jakém rozsahu se mají vyhledat prvočísla ?" VerticalAlignment="Center" Grid.ColumnSpan="2"></Label>
         <TextBox x:Name="tb1Out" Grid.Column="4" Background="Red" MaxLines="7" MaxLength="10" BorderBrush="#FF00FF0C" Foreground="White"/>
         <TextBox x:Name="tb2Out" Grid.Column="4" Grid.Row="1" Background="Blue" Foreground="White" FontWeight="Bold"></TextBox>
-        <TextBox x:Name="tb3Out" Grid.Column="4" Grid.Row="2" Background="Yellow"></TextBox>
 
         <TextBox x:Name="tb1Max" Background="Red" Grid.Column="2" VerticalAlignment="Top" Height="25" Text="Max"></TextBox>
         <TextBox x:Name="tb1Min" Background="Blue" Grid.Column="2" VerticalAlignment="Center" Height="25" Text="Min"></TextBox>
@@ -38,13 +35,8 @@
         <TextBox x:Name="tb2Max" Background="Red" Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" Height="25" Text="Max"></TextBox>
         <TextBox x:Name="tb2Num" Background="Yellow" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" Height="25" Text="Čislo"></TextBox>
 
-        <TextBox x:Name="tb3Max" Background="Red" Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" Height="25" Text="Max"></TextBox>
-        <TextBox x:Name="tb3Num" Background="Green" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" Height="25" Text="Číslo"></TextBox>
-        <TextBox x:Name="tb3Nasobek" Background="Orange" Grid.Column="2" Grid.Row="3" VerticalAlignment="Bottom" Height="25" Text="Kolikrát"></TextBox>
-
         <Label x:Name="l1Stav" Content="Dokončeno" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Background="Green" Foreground="White"></Label>
         <Label x:Name="l2Stav" Content="Dokončeno" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="1" Background="Green" Foreground="White"></Label>
-        <Label x:Name="l3Stav" Content="Dokončeno" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="2" Background="Green" Foreground="White"></Label>
-
+        <Button Background="Black" Grid.Column="2" Grid.Row="2" x:Name="AsyncButt" Click="AsyncButt_Click" Content="Run both Async" Foreground="White" Height="30" VerticalAlignment="Center"></Button>
     </Grid>
 </Window>
